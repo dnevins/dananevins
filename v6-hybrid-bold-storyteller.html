@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dana Nevins — Founder & CEO</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #000000;
+  --surface: #080808;
+  --blue: hsl(210, 100%, 56%);
+  --blue-rgb: 56, 152, 255;
+  --glow: 0 0 20px rgba(56, 152, 255, 0.3);
+  --glow-strong: 0 0 40px rgba(56, 152, 255, 0.4), 0 0 80px rgba(56, 152, 255, 0.15);
+  --text: #ffffff;
+  --body: #a0a0a0;
+  --muted: #555555;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Fade-in animation ── */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Utility ── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.container--wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ════════════════════════════════════════
+   HERO — Hormozi-bold, full viewport
+   ════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(var(--blue-rgb), 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero__photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #111 0%, #1a1a2e 100%);
+  border: 3px solid rgba(var(--blue-rgb), 0.3);
+  box-shadow: var(--glow);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.hero__photo svg {
+  width: 80px;
+  height: 80px;
+  opacity: 0.3;
+}
+
+.hero__label {
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__heading {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__sub {
+  font-size: 1.15rem;
+  color: var(--body);
+  max-width: 650px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+.hero__sub strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.hero__cta {
+  display: inline-block;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: transparent;
+  border: 2px solid var(--blue);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--glow);
+  position: relative;
+  z-index: 1;
+}
+.hero__cta:hover {
+  background: var(--blue);
+  color: #000;
+  box-shadow: var(--glow-strong);
+}
+
+/* ════════════════════════════════════════
+   STATS — Hormozi style massive numbers
+   ════════════════════════════════════════ */
+.stats {
+  padding: 100px 24px;
+  background: var(--surface);
+  border-top: 1px solid rgba(var(--blue-rgb), 0.1);
+  border-bottom: 1px solid rgba(var(--blue-rgb), 0.1);
+}
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.stat__number {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--blue);
+  text-shadow: var(--glow);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat__label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ════════════════════════════════════════
+   STORY — Brunson-style narrative
+   ════════════════════════════════════════ */
+.story {
+  padding: 120px 24px;
+  position: relative;
+}
+.story::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--blue-rgb), 0.2), transparent);
+}
+
+.story__layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 80px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.story__heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 48px;
+  line-height: 1.3;
+}
+
+.story__text p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--body);
+  margin-bottom: 28px;
+}
+.story__text p:first-of-type::first-letter {
+  font-size: 3.5rem;
+  float: left;
+  line-height: 1;
+  margin-right: 12px;
+  margin-top: 4px;
+  color: var(--blue);
+  font-weight: 700;
+}
+.story__text em {
+  color: var(--text);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.story__portrait {
+  position: sticky;
+  top: 100px;
+}
+.story__portrait-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, #0a0a14 0%, #111122 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(var(--blue-rgb), 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.story__portrait-img svg {
+  width: 60px;
+  height: 60px;
+  opacity: 0.25;
+}
+
+/* ════════════════════════════════════════
+   COMPANIES — Hormozi-direct
+   ════════════════════════════════════════ */
+.companies {
+  padding: 100px 24px;
+  background: var(--surface);
+}
+.section-heading {
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--blue);
+  text-align: center;
+  margin-bottom: 60px;
+}
+.companies__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.company-card {
+  padding: 48px 40px;
+  background: rgba(var(--blue-rgb), 0.03);
+  border: 1px solid rgba(var(--blue-rgb), 0.1);
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.company-card:hover {
+  border-color: rgba(var(--blue-rgb), 0.3);
+  box-shadow: 0 0 30px rgba(var(--blue-rgb), 0.08);
+}
+.company-card__name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.company-card__desc {
+  font-size: 1rem;
+  color: var(--body);
+  line-height: 1.75;
+}
+
+/* ════════════════════════════════════════
+   CREDIBILITY STRIP
+   ════════════════════════════════════════ */
+.credibility {
+  padding: 80px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(var(--blue-rgb), 0.08);
+  border-bottom: 1px solid rgba(var(--blue-rgb), 0.08);
+}
+.credibility__featured {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.credibility__outlets {
+  font-size: 1rem;
+  color: var(--body);
+  margin-bottom: 40px;
+}
+.credibility__badges {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.badge {
+  padding: 10px 24px;
+  border: 1px solid rgba(var(--blue-rgb), 0.15);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(var(--blue-rgb), 0.04);
+}
+
+/* ════════════════════════════════════════
+   SPEAKING
+   ════════════════════════════════════════ */
+.speaking {
+  padding: 100px 24px;
+}
+.speaking__intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  font-size: 1.1rem;
+  color: var(--body);
+  line-height: 1.7;
+}
+.speaking__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.video-card {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #0a0a14 0%, #111122 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(var(--blue-rgb), 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-card:hover {
+  border-color: rgba(var(--blue-rgb), 0.4);
+  box-shadow: 0 0 30px rgba(var(--blue-rgb), 0.12);
+}
+.video-card:hover .video-card__play {
+  transform: scale(1.1);
+  background: var(--blue);
+}
+.video-card__play {
+  width: 60px;
+  height: 60px;
+  background: rgba(var(--blue-rgb), 0.2);
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--glow);
+  position: relative;
+  z-index: 2;
+}
+.video-card__play svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text);
+  margin-left: 3px;
+}
+.video-card:hover .video-card__play svg {
+  fill: #000;
+}
+.video-card__title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 16px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  z-index: 2;
+}
+
+/* ════════════════════════════════════════
+   RESOURCES — Hormozi-direct
+   ════════════════════════════════════════ */
+.resources {
+  padding: 100px 24px;
+  background: var(--surface);
+}
+.resources__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.resource-card {
+  padding: 48px 40px;
+  border: 1px solid rgba(var(--blue-rgb), 0.15);
+  border-radius: 8px;
+  background: rgba(var(--blue-rgb), 0.03);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.resource-card:hover {
+  border-color: rgba(var(--blue-rgb), 0.35);
+  box-shadow: 0 0 30px rgba(var(--blue-rgb), 0.1);
+}
+.resource-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.resource-card__desc {
+  font-size: 1rem;
+  color: var(--body);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+.resource-card__link {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.resource-card__link:hover {
+  text-shadow: var(--glow);
+}
+
+/* ════════════════════════════════════════
+   BOTTOM CTA — Hormozi-bold
+   ════════════════════════════════════════ */
+.bottom-cta {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 24px;
+  position: relative;
+}
+.bottom-cta::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(var(--blue-rgb), 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.bottom-cta__heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.bottom-cta__sub {
+  font-size: 1.2rem;
+  color: var(--body);
+  max-width: 500px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+.bottom-cta__btn {
+  display: inline-block;
+  padding: 18px 48px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--blue);
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--glow-strong);
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.bottom-cta__btn:hover {
+  background: hsl(210, 100%, 64%);
+  box-shadow: 0 0 50px rgba(var(--blue-rgb), 0.5), 0 0 100px rgba(var(--blue-rgb), 0.2);
+}
+
+/* ════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════ */
+.footer {
+  padding: 48px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(var(--blue-rgb), 0.08);
+}
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+.footer__socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--blue-rgb), 0.15);
+  transition: all 0.3s ease;
+}
+.footer__socials a:hover {
+  border-color: var(--blue);
+  box-shadow: var(--glow);
+}
+.footer__socials a svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--body);
+  transition: fill 0.3s ease;
+}
+.footer__socials a:hover svg {
+  fill: var(--blue);
+}
+.footer__copy {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero__heading { font-size: 3rem; }
+  .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 48px 24px; }
+  .stat__number { font-size: 3rem; }
+  .story__layout { grid-template-columns: 1fr; gap: 48px; }
+  .story__portrait { position: static; order: -1; max-width: 280px; margin: 0 auto; }
+  .companies__grid { grid-template-columns: 1fr; }
+  .speaking__grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .resources__grid { grid-template-columns: 1fr; }
+  .bottom-cta__heading { font-size: 2.5rem; }
+}
+
+@media (max-width: 600px) {
+  .hero__heading { font-size: 2.2rem; }
+  .hero__photo { width: 150px; height: 150px; }
+  .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 40px 16px; }
+  .stat__number { font-size: 2.4rem; }
+  .story__heading { font-size: 1.6rem; }
+  .story__text p { font-size: 1.05rem; }
+  .company-card, .resource-card { padding: 32px 24px; }
+  .credibility__badges { gap: 12px; }
+  .badge { padding: 8px 16px; font-size: 0.7rem; }
+  .bottom-cta__heading { font-size: 2rem; }
+  .bottom-cta__btn { padding: 16px 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero">
+  <div class="hero__photo">
+    <img src="https://webshopmanager.com/wp-content/uploads/2024/08/about-profile.webp" alt="Dana Nevins speaking" style="width:100%;height:100%;object-fit:cover;">
+  </div>
+  <div class="hero__label">Dana Nevins &middot; Founder &amp; CEO</div>
+  <h1 class="hero__heading">Twenty-Five Years Building the Backbone of Automotive Ecommerce</h1>
+  <p class="hero__sub"><strong>Web Shop Manager</strong> &middot; <strong>PartsLogic</strong> &middot; $1B+ processed &middot; 1,000+ stores powered</p>
+  <a href="#story" class="hero__cta">The Full Story &darr;</a>
+</section>
+
+<!-- ════════════ STATS ════════════ -->
+<section class="stats fade-section">
+  <div class="stats__grid">
+    <div class="stat">
+      <div class="stat__number" data-target="1" data-prefix="$" data-suffix="B+">$0</div>
+      <div class="stat__label">Transactions Processed</div>
+    </div>
+    <div class="stat">
+      <div class="stat__number" data-target="1000" data-prefix="" data-suffix="+">0</div>
+      <div class="stat__label">Businesses Powered</div>
+    </div>
+    <div class="stat">
+      <div class="stat__number" data-target="25" data-prefix="" data-suffix="+">0</div>
+      <div class="stat__label">Years Deep</div>
+    </div>
+    <div class="stat">
+      <div class="stat__number" data-target="235" data-prefix="" data-suffix="+">0</div>
+      <div class="stat__label">Articles &amp; Talks</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ STORY ════════════ -->
+<section class="story fade-section" id="story">
+  <div class="story__layout container">
+    <div class="story__content">
+      <h2 class="story__heading">How a Broken Bronco Led to a Billion-Dollar Platform</h2>
+      <div class="story__text">
+        <p>In 1998, I was standing in a driveway in Southern California, trying to source a quarter panel for a 1970 Ford Bronco I had no business restoring. I started buying parts from Jeff's Bronco Graveyard — one of the very first aftermarket businesses selling online.</p>
+
+        <p>The websites were ugly. Search was broken. Checkout was a nightmare. But people were buying anyway, because they had no choice. <em>I saw the gap before I had a name for it.</em></p>
+
+        <p>The automotive aftermarket was going digital whether it was ready or not. And nobody was building technology that understood how this industry actually works — fitment data, year-make-model lookup, ACES and PIES compliance, complex catalog structures with thousands of SKUs.</p>
+
+        <p>In 2000, I founded Web Shop Manager. The thesis was simple: <em>parts retailers deserve ecommerce tools as sophisticated as their product data.</em></p>
+
+        <p>That thesis scaled. Over the next two decades, Web Shop Manager became the aftermarket's most trusted ecommerce platform — powering over a thousand stores across auto, truck, powersports, marine, firearms, and more. We crossed a billion dollars in processed transactions. Inc. 5000 took notice. We won three W3 Gold Awards. SEMA invited me to speak year after year.</p>
+
+        <p>In 2020, I saw the next gap. Agencies and developers needed modern, API-first tools for building automotive ecommerce. So I started PartsLogic — smart search, intelligent fitment, better data infrastructure.</p>
+
+        <p>Twenty-five years in, I'm still solving the same problem that grabbed me in that driveway: <em>how do you make it radically simple to sell complex parts online?</em></p>
+      </div>
+    </div>
+    <aside class="story__portrait">
+      <div class="story__portrait-img" style="padding:0;">
+        <img src="https://webshopmanager.com/wp-content/uploads/2024/08/about-banner.webp" alt="Dana Nevins yellow Ford Bronco off-road" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ════════════ COMPANIES ════════════ -->
+<section class="companies fade-section">
+  <div class="section-heading">What I'm Building</div>
+  <div class="companies__grid container">
+    <div class="company-card">
+      <div class="company-card__name">Web Shop Manager</div>
+      <p class="company-card__desc">The automotive aftermarket's leading ecommerce platform. Fitment-aware search, ACES/PIES compliance, enterprise catalog management, mobile-first design. Used by 1,000+ businesses.</p>
+    </div>
+    <div class="company-card">
+      <div class="company-card__name">PartsLogic</div>
+      <p class="company-card__desc">Smart search and intelligent fitment tools for agencies and developers. API-first. Modern stack. The next evolution of automotive ecommerce technology.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CREDIBILITY ════════════ -->
+<section class="credibility fade-section">
+  <div class="credibility__featured">Featured In</div>
+  <p class="credibility__outlets">SEMA News &middot; Internet Retailer &middot; Website Magazine &middot; Diesel Army &middot; Offroad Xtreme</p>
+  <div class="credibility__badges">
+    <div class="badge">SEMA Exhibitor</div>
+    <div class="badge">Inc. 5000</div>
+    <div class="badge">3x W3 Gold</div>
+    <div class="badge">Best Place to Work</div>
+  </div>
+</section>
+
+<!-- ════════════ SPEAKING ════════════ -->
+<section class="speaking fade-section">
+  <div class="section-heading">From the Stage</div>
+  <p class="speaking__intro">Keynotes and sessions at SEMA, HDAW, and PRI on ecommerce strategy, category architecture, and digital transformation.</p>
+  <div class="speaking__grid">
+    <div class="video-card">
+      <div class="video-card__play">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <div class="video-card__title">SEMA — Building an Effective Category Tree</div>
+    </div>
+    <div class="video-card">
+      <div class="video-card__play">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <div class="video-card__title">Automotive eCommerce Strategies That Work</div>
+    </div>
+    <div class="video-card">
+      <div class="video-card__play">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <div class="video-card__title">Accelerate Your Brand Value</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ BUILDS ════════════ -->
+<section class="builds fade-section">
+  <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:1rem;">The Builds</h2>
+  <p style="color:#94a3b8;max-width:640px;margin-bottom:2rem;">Before I built software, I built trucks. That gearhead DNA is in everything I touch — from restoring a '70 Bronco to custom rigs featured on national television.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;">
+    <div style="border-radius:1rem;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);">
+      <img src="https://webshopmanager.com/wp-content/uploads/2024/08/about-banner.webp" alt="Dana Nevins driving custom yellow Ford Bronco" style="width:100%;display:block;">
+      <div style="padding:1.25rem;"><strong style="color:#f1f5f9;">The Yellow Bronco</strong><p style="color:#94a3b8;font-size:.9rem;margin:.5rem 0 0;">The machine that started it all — WSM was born during this restoration.</p></div>
+    </div>
+    <div style="border-radius:1rem;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);">
+      <img src="https://webshopmanager.com/wp-content/uploads/2024/09/our-core.webp" alt="Dana with vehicles and team" style="width:100%;display:block;">
+      <div style="padding:1.25rem;"><strong style="color:#f1f5f9;">Gearhead to CEO</strong><p style="color:#94a3b8;font-size:.9rem;margin:.5rem 0 0;">From trading Bronco parts to powering $1B+ in automotive eCommerce.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TV & MEDIA ════════════ -->
+<section class="tv-media fade-section">
+  <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:1rem;">National TV &amp; Media</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center;">
+    <div style="padding:2rem;background:rgba(255,255,255,.03);border-radius:1rem;border:1px solid rgba(255,255,255,.06);"><div style="font-size:2.5rem;margin-bottom:.75rem;">📺</div><strong style="color:#f1f5f9;">National Television</strong><p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 0;">Builds featured on national automotive TV</p></div>
+    <div style="padding:2rem;background:rgba(255,255,255,.03);border-radius:1rem;border:1px solid rgba(255,255,255,.06);"><div style="font-size:2.5rem;margin-bottom:.75rem;">🏆</div><strong style="color:#f1f5f9;">SEMA Speaker</strong><p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 0;">Featured at the premier aftermarket trade show</p></div>
+    <div style="padding:2rem;background:rgba(255,255,255,.03);border-radius:1rem;border:1px solid rgba(255,255,255,.06);"><div style="font-size:2.5rem;margin-bottom:.75rem;">🎙️</div><strong style="color:#f1f5f9;">Industry Press</strong><p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 0;">Featured in automotive and eCommerce media</p></div>
+  </div>
+</section>
+
+<!-- ════════════ RESOURCES ════════════ -->
+<section class="resources fade-section">
+  <div class="section-heading">The Playbook — Free</div>
+  <div class="resources__grid container">
+    <div class="resource-card">
+      <div class="resource-card__title">The Aftermarket Growth Blueprint</div>
+      <p class="resource-card__desc">The exact strategies top-performing brands use to capture market share in automotive ecommerce.</p>
+      <a href="#" class="resource-card__link">Get It Free &rarr;</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card__title">The High-Velocity Ecommerce Roadmap</div>
+      <p class="resource-card__desc">The crawl-walk-run framework for dominating automotive parts sales online.</p>
+      <a href="#" class="resource-card__link">Download Now &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ BOTTOM CTA ════════════ -->
+<section class="bottom-cta fade-section">
+  <h2 class="bottom-cta__heading">Let's Build Something</h2>
+  <p class="bottom-cta__sub">I've spent 25 years solving the exact problems you're facing. Let's talk.</p>
+  <a href="https://www.linkedin.com/in/dnevins/" class="bottom-cta__btn" target="_blank" rel="noopener">Connect with Dana &rarr;</a>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="footer">
+  <div class="footer__socials">
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/dnevins/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/dananevins/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    </a>
+    <!-- X / Twitter -->
+    <a href="https://twitter.com/dnevins" target="_blank" rel="noopener" aria-label="X / Twitter">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/dana.nevins.832894/" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <!-- YouTube -->
+    <a href="https://youtube.com/@webshopmanager" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+  </div>
+  <div class="footer__copy">&copy; 2026 Dana Nevins</div>
+</footer>
+
+<script>
+(function() {
+  // ── Fade-in on scroll ──
+  const fadeSections = document.querySelectorAll('.fade-section');
+  const fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  fadeSections.forEach(function(s) { fadeObserver.observe(s); });
+
+  // ── Stats count-up animation ──
+  const statNumbers = document.querySelectorAll('.stat__number[data-target]');
+  let statsAnimated = false;
+
+  function animateStats() {
+    if (statsAnimated) return;
+    statsAnimated = true;
+
+    statNumbers.forEach(function(el) {
+      const target = parseInt(el.getAttribute('data-target'), 10);
+      const prefix = el.getAttribute('data-prefix') || '';
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 2000;
+      const startTime = performance.now();
+
+      function easeOutQuart(t) {
+        return 1 - Math.pow(1 - t, 4);
+      }
+
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeOutQuart(progress);
+        const current = Math.round(eased * target);
+
+        el.textContent = prefix + current.toLocaleString() + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      requestAnimationFrame(update);
+    });
+  }
+
+  const statsSection = document.querySelector('.stats');
+  if (statsSection) {
+    const statsObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateStats();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    statsObserver.observe(statsSection);
+  }
+})();
+</script>
+
+</body>
+</html>

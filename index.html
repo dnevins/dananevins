@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dana Nevins — Brand Page Concepts</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; min-height: 100vh; }
+.container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+h1 { font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 8px; }
+.subtitle { text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 60px; }
+.accent { color: hsl(210, 100%, 56%); }
+.section-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: hsl(210, 100%, 56%); margin-bottom: 20px; font-weight: 600; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 50px; }
+.card { background: #111; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; text-decoration: none; color: #fff; transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.card:hover { border-color: hsl(210, 100%, 56%); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(56, 152, 255, 0.15); }
+.card-number { font-size: 3rem; font-weight: 800; color: rgba(56, 152, 255, 0.15); position: absolute; top: 16px; right: 24px; line-height: 1; }
+.card-tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 100px; margin-bottom: 16px; font-weight: 600; width: fit-content; }
+.tag-base { background: rgba(56, 152, 255, 0.12); color: hsl(210, 100%, 65%); }
+.tag-hybrid { background: rgba(152, 56, 255, 0.12); color: hsl(270, 100%, 72%); }
+.card h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+.card .inspired { font-size: 0.85rem; color: hsl(210, 100%, 56%); margin-bottom: 12px; }
+.card p { font-size: 0.95rem; color: #999; line-height: 1.6; flex: 1; }
+.card .features { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.card .features span { font-size: 0.7rem; padding: 3px 8px; border-radius: 6px; background: rgba(255,255,255,0.05); color: #666; }
+.open-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.85rem; color: hsl(210, 100%, 56%); font-weight: 600; }
+.open-btn svg { width: 14px; height: 14px; transition: transform 0.2s; }
+.card:hover .open-btn svg { transform: translateX(4px); }
+footer { text-align: center; padding: 40px 0 60px; color: #444; font-size: 0.85rem; }
+@media (max-width: 700px) {
+  h1 { font-size: 1.8rem; }
+  .grid { grid-template-columns: 1fr; }
+  .container { padding: 40px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>dananevins<span class="accent">.com</span></h1>
+  <p class="subtitle">11 design concepts for your COO review — click any card to open</p>
+
+  <p class="section-label">Base Versions</p>
+  <div class="grid">
+    <a class="card" href="v1-martell.html" target="_blank">
+      <span class="card-number">01</span>
+      <span class="card-tag tag-base">Base</span>
+      <h2>The Martell</h2>
+      <div class="inspired">Warm Authority &mdash; danmartell.com</div>
+      <p>Approachable mentor vibe. Sticky nav, hero with photo, venture cards grid, stats bar, article cards, video section, lead magnets, and warm CTA.</p>
+      <div class="features">
+        <span>Sticky Nav</span><span>Venture Cards</span><span>Lead Magnets</span><span>Hamburger Menu</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a class="card" href="v2-garyvee.html" target="_blank">
+      <span class="card-number">02</span>
+      <span class="card-tag tag-base">Base</span>
+      <h2>The GaryVee</h2>
+      <div class="inspired">Content Hub Central &mdash; garyvaynerchuk.com</div>
+      <p>Ultra-minimal editorial. Text logo, signature quote, three-pillar identity, filterable content grid, and generous whitespace. Blue used sparingly.</p>
+      <div class="features">
+        <span>Filter Tabs</span><span>Three Pillars</span><span>Editorial Grid</span><span>Monochrome</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a class="card" href="v3-hormozi.html" target="_blank">
+      <span class="card-number">03</span>
+      <span class="card-tag tag-base">Base</span>
+      <h2>The Hormozi</h2>
+      <div class="inspired">Bold Conversion &mdash; alexhormozi.com</div>
+      <p>Massive typography, full-viewport hero, animated stat counters, blue neon glow, floating social sidebar, and minimal sections that hit hard.</p>
+      <div class="features">
+        <span>Neon Glow</span><span>Count-Up Stats</span><span>Parallax</span><span>Floating Sidebar</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a class="card" href="v4-cardone.html" target="_blank">
+      <span class="card-number">04</span>
+      <span class="card-tag tag-base">Base</span>
+      <h2>The Cardone</h2>
+      <div class="inspired">High-Energy Authority &mdash; grantcardone.com</div>
+      <p>Aggressive uppercase typography, dual nav bars, speaking events section, video cards with play overlays, blue gradient stats strip, and bold CTAs.</p>
+      <div class="features">
+        <span>Dual Nav</span><span>Event Cards</span><span>Video Overlays</span><span>Blue Gradient</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a class="card" href="v5-brunson.html" target="_blank">
+      <span class="card-number">05</span>
+      <span class="card-tag tag-base">Base</span>
+      <h2>The Brunson</h2>
+      <div class="inspired">Premium Storyteller &mdash; russellbrunson.com</div>
+      <p>Sticky sidebar with scrollspy, long-form narrative origin story, blue checkmark lists, premium reading experience, and resource cards with blue accents.</p>
+      <div class="features">
+        <span>Sidebar Scrollspy</span><span>Long-Form Story</span><span>Checkmark Lists</span><span>Premium Type</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+
+  <p class="section-label">Hybrid Versions</p>
+  <div class="grid">
+    <a class="card" href="v6-hybrid-bold-storyteller.html" target="_blank">
+      <span class="card-number">06</span>
+      <span class="card-tag tag-hybrid">Hybrid</span>
+      <h2>Bold Storyteller</h2>
+      <div class="inspired">Hormozi + Brunson</div>
+      <p>Hormozi's massive hero and glowing stats up top, then transitions into Brunson's premium long-form narrative with drop cap and sticky portrait. Impact meets depth.</p>
+      <div class="features">
+        <span>Hormozi Hero</span><span>Brunson Story</span><span>Count-Up Stats</span><span>Drop Cap</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a class="card" href="v7-hybrid-mentor-editorial.html" target="_blank">
+      <span class="card-number">07</span>
+      <span class="card-tag tag-hybrid">Hybrid</span>
+      <h2>Mentor Editorial</h2>
+      <div class="inspired">Martell + GaryVee</div>
+      <p>Martell's warm "Hey, I'm Dana" greeting with GaryVee's editorial content grid and filter tabs. Approachable and generous, not salesy.</p>
+      <div class="features">
+        <span>Warm Hero</span><span>Filter Tabs</span><span>Three Pillars</span><span>Editorial Grid</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a class="card" href="v8-hybrid-ultimate.html" target="_blank">
+      <span class="card-number">08</span>
+      <span class="card-tag tag-hybrid">Hybrid</span>
+      <h2>The Ultimate</h2>
+      <div class="inspired">Best of All 5</div>
+      <p>Cherry-picks the best element from each: Hormozi hero, GaryVee pillars, Brunson story, Martell ventures, Cardone speaking section. The full package.</p>
+      <div class="features">
+        <span>All Elements</span><span>Sticky Nav</span><span>Filter Grid</span><span>Count-Up Stats</span><span>Video Cards</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+
+  <p class="section-label">V8 Evolved — Big Hero Image</p>
+  <div class="grid">
+    <a class="card" href="v9-hormozi-hero.html" target="_blank">
+      <span class="card-number">09</span>
+      <span class="card-tag tag-hybrid">Hybrid</span>
+      <h2>Hormozi Hero</h2>
+      <div class="inspired">V8 + Hormozi Bold + Big Image</div>
+      <p>Split-screen hero with full-height profile photo. Bebas Neue headings, electric blue accent, aggressive typography, inline hero stats. Maximum impact.</p>
+      <div class="features">
+        <span>Split Hero</span><span>Bebas Neue</span><span>Electric Blue</span><span>Sharp Corners</span><span>All V8 Sections</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a class="card" href="v10-editorial-hero.html" target="_blank">
+      <span class="card-number">10</span>
+      <span class="card-tag tag-hybrid">Hybrid</span>
+      <h2>Editorial Warmth</h2>
+      <div class="inspired">V8 + V7 Hero + Warm Tones</div>
+      <p>Large side-by-side portrait, "Hey, I'm Dana" warmth, DM Serif Display headings, warm gold accent on deep navy. Magazine editorial feel meets V8 polish.</p>
+      <div class="features">
+        <span>Large Portrait</span><span>DM Serif</span><span>Gold Accent</span><span>Warm Navy</span><span>All V8 Sections</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <a class="card" href="v11-cinematic-hero.html" target="_blank">
+      <span class="card-number">11</span>
+      <span class="card-tag tag-hybrid">Hybrid</span>
+      <h2>Cinematic Split</h2>
+      <div class="inspired">V8 + Film Grain + Automotive</div>
+      <p>Dramatic full-viewport Bronco banner hero with gradient fade. Copper/bronze automotive accent, Barlow Condensed type, film grain texture. Equal parts founder and gearhead.</p>
+      <div class="features">
+        <span>Full-Width Hero</span><span>Film Grain</span><span>Copper Accent</span><span>Barlow Condensed</span><span>All V8 Sections</span>
+      </div>
+      <span class="open-btn">Open Version <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+</div>
+<footer>&copy; 2026 Dana Nevins &mdash; Design Concepts Review</footer>
+</body>
+</html>
