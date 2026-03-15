@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dananevins.com/sitemap.xml
