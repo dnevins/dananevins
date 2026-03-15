@@ -211,14 +211,6 @@ section{padding:100px 28px}
   .hero-meta-item{font-size:0.72rem}
 }
 
-/* ── MODAL ── */
-.modal-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:24px}
-.modal-overlay.open{display:flex}
-.modal-content{position:relative;width:100%;max-width:700px;height:85vh;max-height:750px;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.6)}
-.modal-content iframe{width:100%;height:100%;border:none}
-.modal-close{position:absolute;top:12px;right:12px;z-index:10;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.1);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
-.modal-close:hover{background:rgba(255,255,255,0.2)}
-
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -262,7 +254,7 @@ section{padding:100px 28px}
       </div>
       <div class="hero-actions fade-in fade-in-delay-3">
         <a href="#story" class="hero-cta">My Story</a>
-        <a href="#" class="hero-cta-outline" onclick="openBookingModal(event)">Book a Call</a>
+        <a href="https://info.webshopmanager.com/meetings/dananevins/discovery-call" target="_blank" rel="noopener" class="hero-cta-outline">Book a Call</a>
       </div>
       <div class="hero-social fade-in fade-in-delay-3">
         <a href="https://www.linkedin.com/in/dnevins/" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -652,7 +644,7 @@ section{padding:100px 28px}
 <section class="final-cta" id="connect">
   <h2 class="fade-in">Let's Build Something Together</h2>
   <p class="fade-in fade-in-delay-1">25 years of aftermarket ecommerce experience. Whether you're scaling a parts business or rethinking your digital strategy, one conversation could change your trajectory.</p>
-  <a href="#" class="cta-btn fade-in fade-in-delay-2" onclick="openBookingModal(event)">Book a Discovery Call &rarr;</a>
+  <a href="https://info.webshopmanager.com/meetings/dananevins/discovery-call" target="_blank" rel="noopener" class="cta-btn fade-in fade-in-delay-2">Book a Discovery Call &rarr;</a>
 </section>
 
 <!-- FOOTER -->
@@ -676,41 +668,6 @@ section{padding:100px 28px}
   </div>
   <div class="footer-copy">&copy; 2026 Dana Nevins <span>|</span> San Diego, CA</div>
 </footer>
-
-<!-- BOOKING MODAL -->
-<div class="modal-overlay" id="bookingModal">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeBookingModal()" aria-label="Close">&times;</button>
-    <div id="bookingContainer" style="width:100%;height:100%;overflow-y:auto;"></div>
-  </div>
-</div>
-
-<script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
-<script>
-var bookingLoaded = false;
-function openBookingModal(e){
-  e.preventDefault();
-  var modal = document.getElementById('bookingModal');
-  if(!bookingLoaded){
-    var container = document.getElementById('bookingContainer');
-    container.innerHTML = '<div class="meetings-iframe-container" data-src="https://info.webshopmanager.com/meetings/dananevins/discovery-call?embed=true"></div>';
-    if(window.HubSpotMeetings) window.HubSpotMeetings.load();
-    bookingLoaded = true;
-  }
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeBookingModal(){
-  document.getElementById('bookingModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.getElementById('bookingModal').addEventListener('click', function(e){
-  if(e.target === this) closeBookingModal();
-});
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape') closeBookingModal();
-});
-</script>
 
 <script>
 (function(){
