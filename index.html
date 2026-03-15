@@ -681,17 +681,22 @@ section{padding:100px 28px}
 <div class="modal-overlay" id="bookingModal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeBookingModal()" aria-label="Close">&times;</button>
-    <iframe id="bookingFrame" src="" title="Book a Discovery Call"></iframe>
+    <div id="bookingContainer" style="width:100%;height:100%;overflow-y:auto;"></div>
   </div>
 </div>
 
+<script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
 <script>
+var bookingLoaded = false;
 function openBookingModal(e){
   e.preventDefault();
   var modal = document.getElementById('bookingModal');
-  var frame = document.getElementById('bookingFrame');
-  if(!frame.src || frame.src === window.location.href)
-    frame.src = 'https://info.webshopmanager.com/meetings/dananevins/discovery-call?embed=true';
+  if(!bookingLoaded){
+    var container = document.getElementById('bookingContainer');
+    container.innerHTML = '<div class="meetings-iframe-container" data-src="https://info.webshopmanager.com/meetings/dananevins/discovery-call?embed=true"></div>';
+    if(window.HubSpotMeetings) window.HubSpotMeetings.load();
+    bookingLoaded = true;
+  }
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
